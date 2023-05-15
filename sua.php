@@ -1,7 +1,7 @@
 <?php
-$mahang = $_GET['sid'];
+$id = $_GET['sid'];
 require_once 'connect.php';
-$sua_sql = "SELECT * FROM tbmathang WHERE mahang=$mahang";
+$sua_sql = "SELECT * FROM tbmathang WHERE id=$id";
 
 $result = mysqli_query($conn, $sua_sql);
 $row = mysqli_fetch_assoc($result);
@@ -22,7 +22,8 @@ $row = mysqli_fetch_assoc($result);
     <div class="container">
         <h1>Form Thêm Mặt Hang</h1>
         <form action="update.php" method="post">
-            <div class="form-group">
+            <input type="hiden" name="sid" value="<?php echo $id; ?>" id="">
+            <div class=" form-group">
                 <lable for="mahang">Mã hàng</lable>
                 <input type="text" id="mahang" class="form-control" name="mahang" value="<?php echo $row['mahang'] ?>">
             </div>

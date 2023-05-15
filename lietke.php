@@ -13,6 +13,10 @@
 <body>
     <div class="container">
         <h1>Danh sách mặt hàng</h1>
+        <form method="get" action="search.php">
+            <input type="text" name="keyword" placeholder="Nhập từ khóa tìm kiếm...">
+            <button type="submit">Tìm kiếm</button>
+        </form>
         <table class="table">
             <thead class="table-dark">
                 <tr>

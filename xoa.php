@@ -1,11 +1,13 @@
 <?php
-//lay du lieu id can xoa
-$mhid = $_GET['mahang'];
-//echo $id;
-require_once 'connect.php';
-$xoa_sql = "DELETE  FROM tbmathang WHERE mahang=$mhid";
-//thuc hien cau lenh
-if (mysqli_query($conn, $xoa_sql)) {
-    //echo "<h1>Xoa thanh cong</h1>";
-    header("Location: lietke.php");
+require "connect.php";
+if (isset($_GET["mahang"])) {
+    $mahang = $_GET["mahang"];
 }
+$stmt = $conn->prepare("DELETE FROM tbmathang WHERE mahang=?");
+$stmt->bind_param("s", $customerID);
+$customerID = $mahang;
+$stmt->execute();
+$stmt->close();
+$conn->close();
+header("Location: lietke.php");
+?>
