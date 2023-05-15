@@ -5,5 +5,7 @@ $mhid = $_GET['mahang'];
 require_once 'connect.php';
 $xoa_sql = "DELETE  FROM tbmathang WHERE mahang=$mhid";
 //thuc hien cau lenh
-mysqli_query($conn, $xoa_sql);
-echo "<h1>Xoa thanh cong</h1>";
+if (mysqli_query($conn, $xoa_sql)) {
+    //echo "<h1>Xoa thanh cong</h1>";
+    header("Location: lietke.php");
+}

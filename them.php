@@ -13,10 +13,12 @@ require_once 'connect.php';
 //viet lenh sql them du lieu
 $themsql = "INSERT INTO tbmathang
 (mahang, tenhang, mota, dongia, nguongoc) VALUES ('$mahang', '$tenhang', '$mota', '$dongia', '$nguongoc')";
-//echo $themsql;exit;
+//echo $themsql;
+//exit;
 
 //tthực hiện câu lệnh
-mysqli_query($conn, $themsql);
+if (mysqli_query($conn, $themsql)) {
 
-//in thong bao thanh cong
-echo "<h1>Thêm thành công</h1>";
+    //in thong bao thanh cong
+    header("Location: lietke.php");
+}
